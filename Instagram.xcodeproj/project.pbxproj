@@ -13,6 +13,17 @@
 		03F995A11AC5839400D25EA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F995A01AC5839400D25EA8 /* Images.xcassets */; };
 		03F995A41AC5839400D25EA8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F995A21AC5839400D25EA8 /* LaunchScreen.xib */; };
 		03F995B01AC5839500D25EA8 /* InstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F995AF1AC5839500D25EA8 /* InstagramTests.swift */; };
+		03F995BB1AC584CF00D25EA8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995B91AC584CF00D25EA8 /* Bolts.framework */; };
+		03F995BC1AC584CF00D25EA8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995BA1AC584CF00D25EA8 /* Parse.framework */; };
+		03F995BE1AC5851000D25EA8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995BD1AC5851000D25EA8 /* AudioToolbox.framework */; };
+		03F995C01AC5851700D25EA8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995BF1AC5851700D25EA8 /* CFNetwork.framework */; };
+		03F995C21AC585C300D25EA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995C11AC585C300D25EA8 /* CoreGraphics.framework */; };
+		03F995C41AC585CD00D25EA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995C31AC585CD00D25EA8 /* libz.dylib */; };
+		03F995C61AC585D500D25EA8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995C51AC585D500D25EA8 /* MobileCoreServices.framework */; };
+		03F995C81AC585DE00D25EA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995C71AC585DE00D25EA8 /* QuartzCore.framework */; };
+		03F995CA1AC585E500D25EA8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995C91AC585E500D25EA8 /* Security.framework */; };
+		03F995CC1AC585EB00D25EA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995CB1AC585EB00D25EA8 /* StoreKit.framework */; };
+		03F995CE1AC585F300D25EA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F995CD1AC585F300D25EA8 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +47,17 @@
 		03F995A91AC5839500D25EA8 /* InstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F995AE1AC5839500D25EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F995AF1AC5839500D25EA8 /* InstagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTests.swift; sourceTree = "<group>"; };
+		03F995B91AC584CF00D25EA8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
+		03F995BA1AC584CF00D25EA8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
+		03F995BD1AC5851000D25EA8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		03F995BF1AC5851700D25EA8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		03F995C11AC585C300D25EA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		03F995C31AC585CD00D25EA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		03F995C51AC585D500D25EA8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		03F995C71AC585DE00D25EA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		03F995C91AC585E500D25EA8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		03F995CB1AC585EB00D25EA8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		03F995CD1AC585F300D25EA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F995CE1AC585F300D25EA8 /* SystemConfiguration.framework in Frameworks */,
+				03F995CC1AC585EB00D25EA8 /* StoreKit.framework in Frameworks */,
+				03F995CA1AC585E500D25EA8 /* Security.framework in Frameworks */,
+				03F995C81AC585DE00D25EA8 /* QuartzCore.framework in Frameworks */,
+				03F995C61AC585D500D25EA8 /* MobileCoreServices.framework in Frameworks */,
+				03F995C41AC585CD00D25EA8 /* libz.dylib in Frameworks */,
+				03F995C21AC585C300D25EA8 /* CoreGraphics.framework in Frameworks */,
+				03F995C01AC5851700D25EA8 /* CFNetwork.framework in Frameworks */,
+				03F995BE1AC5851000D25EA8 /* AudioToolbox.framework in Frameworks */,
+				03F995BC1AC584CF00D25EA8 /* Parse.framework in Frameworks */,
+				03F995BB1AC584CF00D25EA8 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +92,15 @@
 		03F9958B1AC5838F00D25EA8 = {
 			isa = PBXGroup;
 			children = (
+				03F995CD1AC585F300D25EA8 /* SystemConfiguration.framework */,
+				03F995CB1AC585EB00D25EA8 /* StoreKit.framework */,
+				03F995C91AC585E500D25EA8 /* Security.framework */,
+				03F995C71AC585DE00D25EA8 /* QuartzCore.framework */,
+				03F995C51AC585D500D25EA8 /* MobileCoreServices.framework */,
+				03F995C31AC585CD00D25EA8 /* libz.dylib */,
+				03F995C11AC585C300D25EA8 /* CoreGraphics.framework */,
+				03F995BF1AC5851700D25EA8 /* CFNetwork.framework */,
+				03F995BD1AC5851000D25EA8 /* AudioToolbox.framework */,
 				03F995961AC5839100D25EA8 /* Instagram */,
 				03F995AC1AC5839500D25EA8 /* InstagramTests */,
 				03F995951AC5839100D25EA8 /* Products */,
@@ -77,6 +119,8 @@
 		03F995961AC5839100D25EA8 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				03F995B91AC584CF00D25EA8 /* Bolts.framework */,
+				03F995BA1AC584CF00D25EA8 /* Parse.framework */,
 				03F995991AC5839300D25EA8 /* AppDelegate.swift */,
 				03F9959B1AC5839300D25EA8 /* ViewController.swift */,
 				03F9959D1AC5839400D25EA8 /* Main.storyboard */,
@@ -336,6 +380,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/josh/Downloads/parse-library-1.7.0",
+				);
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/josh/Downloads/parse-library-1.7.0",
+				);
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
