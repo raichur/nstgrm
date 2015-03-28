@@ -16,7 +16,25 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func signUp(sender: AnyObject) {
         
+        var error = ""
         
+        if username.text == "" || password.text == "" {
+            if username.text == "" && password.text != "" {
+                error = "Please enter a username"
+            } else if username.text != "" && password.text == "" {
+                error = "Please enter a password"
+            } else if username.text == "" && password.text == "" {
+                error = "Please enter a username and password"
+            }
+        }
+        
+        if error != "" {
+            var alert = UIAlertController(title: "Error In Form", message: error, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
         
     }
     
