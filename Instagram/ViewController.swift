@@ -12,7 +12,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let parseInfo = ParseInfo()
+        
+        Parse.setApplicationId(parseInfo.applicationId, clientKey: parseInfo.clientKey)
+        
+        var query = PFQuery(className: "score")
+        query.getObjectInBackgroundWithId("A6SCCczBCp") {
+            (score: PFObject!, error: NSError!) -> Void in
+            
+                if error == nil {
+                    score["name"] = "Joshua"
+                    score["number"] = 1337
+                    score.save()
+                } else {
+                    println(error)
+                }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
