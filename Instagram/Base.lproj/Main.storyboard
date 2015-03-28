@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,36 +16,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-9J-sor">
-                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1R-XP-fp0">
+                                <rect key="frame" x="98" y="90" width="124" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="qba-fX-LtP"/>
+                                    <constraint firstAttribute="height" constant="34" id="Crk-0P-kho"/>
+                                    <constraint firstAttribute="width" constant="124" id="h3O-3t-1Gf"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNw-s4-seP">
-                                <rect key="frame" x="0.0" y="446" width="320" height="30"/>
-                                <state key="normal" title="Pick Image">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tst-lS-zl1">
+                                <rect key="frame" x="16" y="132" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Irm-12-GV3"/>
+                                    <constraint firstAttribute="width" constant="288" id="lgz-6d-Ajb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cue-nW-Gyr">
+                                <rect key="frame" x="16" y="170" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="bbl-Io-ql4"/>
+                                    <constraint firstAttribute="height" constant="30" id="ylE-Vr-3sC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-il-fED">
+                                <rect key="frame" x="16" y="208" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LWn-ej-oei"/>
+                                    <constraint firstAttribute="width" constant="288" id="Rsl-Xx-5gp"/>
+                                </constraints>
+                                <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PE1-kO-aI4"/>
+                                    <action selector="signUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="r8a-lE-rBB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bNw-s4-seP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BbZ-eJ-k8c"/>
-                            <constraint firstItem="ofq-9J-sor" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="104" id="Exo-oh-8SO"/>
-                            <constraint firstItem="bNw-s4-seP" firstAttribute="top" secondItem="ofq-9J-sor" secondAttribute="bottom" constant="2" id="fkH-P6-cIA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ofq-9J-sor" secondAttribute="trailing" constant="-16" id="fxH-h4-z8f"/>
-                            <constraint firstItem="ofq-9J-sor" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="xyw-Rn-5o3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bNw-s4-seP" secondAttribute="trailing" constant="-16" id="yth-05-kvb"/>
-                            <constraint firstItem="bNw-s4-seP" firstAttribute="top" secondItem="ofq-9J-sor" secondAttribute="bottom" constant="2" id="z9X-wr-ut3"/>
+                            <constraint firstAttribute="centerX" secondItem="c1R-XP-fp0" secondAttribute="centerX" id="02z-6S-tOL"/>
+                            <constraint firstItem="Ofu-il-fED" firstAttribute="top" secondItem="cue-nW-Gyr" secondAttribute="bottom" constant="8" id="Mg3-18-o45"/>
+                            <constraint firstAttribute="centerX" secondItem="Ofu-il-fED" secondAttribute="centerX" id="Uou-vV-aSg"/>
+                            <constraint firstAttribute="centerX" secondItem="cue-nW-Gyr" secondAttribute="centerX" id="XEq-jx-9j7"/>
+                            <constraint firstItem="cue-nW-Gyr" firstAttribute="top" secondItem="Tst-lS-zl1" secondAttribute="bottom" constant="8" id="erk-gb-mlX"/>
+                            <constraint firstItem="c1R-XP-fp0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="70" id="jjN-fQ-ZKR"/>
+                            <constraint firstAttribute="centerX" secondItem="Tst-lS-zl1" secondAttribute="centerX" id="otT-fa-a9K"/>
+                            <constraint firstItem="Tst-lS-zl1" firstAttribute="top" secondItem="c1R-XP-fp0" secondAttribute="bottom" constant="8" id="tFO-Z1-eaH"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="pickedImage" destination="ofq-9J-sor" id="qyt-m5-BnV"/>
+                        <outlet property="password" destination="cue-nW-Gyr" id="uIq-31-I4Q"/>
+                        <outlet property="username" destination="Tst-lS-zl1" id="eh6-4w-HSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
