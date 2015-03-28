@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    func displayAlert(title: String, error: String) {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -29,13 +38,25 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         
         if error != "" {
-            var alert = UIAlertController(title: "Error In Form", message: error, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            displayAlert("Error In Form", error: error)
+        } else {
+            var user = PFUser()
+            user.username = username.text
+            user.password = password.text
+            user.signUpInBackgroundWithBlock {(succeeded: Bool!, signUpError: NSError!) -> Void in
+                if signUpError == nil {
+                    
+                } else {
+                    if let errorString = signUpError.userInfo?["error"] as? NSString {
+                        error = errorString
+                    } else {
+                        error = "Please try again later"
+                    }
+                    self.displayAlert("Error Signing Up", error: error)
+                }
+            
+            }
         }
-        
     }
     
     override func viewDidLoad() {
