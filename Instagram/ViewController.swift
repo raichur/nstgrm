@@ -61,9 +61,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if error != "" {
             displayAlert("Error In Form", error: error)
         } else {
-            var user = PFUser()
-            user.username = username.text
-            user.password = password.text
             
             activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
             activityIndicator.center = self.view.center
@@ -73,23 +70,51 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             activityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
-            user.signUpInBackgroundWithBlock {(succeeded: Bool!, signUpError: NSError!) -> Void in
+            if signUpActive == true {
                 
-                self.activityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                var user = PFUser()
+                user.username = username.text
+                user.password = password.text
                 
-                if signUpError == nil {
+                user.signUpInBackgroundWithBlock {(succeeded: Bool!, signUpError: NSError!) -> Void in
                     
-                } else {
-                    if let errorString = signUpError.userInfo?["error"] as? NSString {
-                        error = errorString
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    if signUpError == nil {
+                        println("Signed up")
                     } else {
-                        error = "Please try again later"
+                        
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                        
+                        if let errorString = signUpError.userInfo?["error"] as? NSString {
+                            error = errorString
+                        } else {
+                            error = "Please try again later"
+                        }
+                        self.displayAlert("Error Signing Up", error: error)
                     }
-                    self.displayAlert("Error Signing Up", error: error)
+                    
                 }
-            
+            } else {
+                PFUser.logInWithUsernameInBackground(username.text, password: password.text) {
+                    (user: PFUser!, signUpError: NSError!) -> Void in
+                    
+                    if signUpError == nil {
+                        println("Logged in")
+                    } else {
+                        if let errorString = signUpError.userInfo?["error"] as? NSString {
+                            error = errorString
+                        } else {
+                            error = "Please try again later"
+                        }
+                        self.displayAlert("Error Logging In", error: error)
+                    }
+                    
+                }
             }
+            
         }
     }
     
