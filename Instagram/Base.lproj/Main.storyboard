@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="eev-kp-l4P" id="pao-qP-om6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="fph-rY-4AP"/>
+                    <navigationItem key="navigationItem" title="Follow Users" id="fph-rY-4AP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8K-XM-8yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

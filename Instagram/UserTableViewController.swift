@@ -43,4 +43,9 @@ class UserTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSgitelectRowAtIndexPath indexPath: NSIndexPath) {
+        var cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+    
 }
