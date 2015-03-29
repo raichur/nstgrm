@@ -55,7 +55,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K7h-ER-jCl"/>
                                     <action selector="toggleSignUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TyK-z1-ceC"/>
                                 </connections>
                             </button>
