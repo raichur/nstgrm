@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="eev-kp-l4P" id="pao-qP-om6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Follow Users" id="fph-rY-4AP">
+                    <navigationItem key="navigationItem" title="Users" id="fph-rY-4AP">
                         <barButtonItem key="rightBarButtonItem" title="Post" id="Ork-SL-FDm">
                             <connections>
                                 <segue destination="fIA-rc-Zlh" kind="show" id="cGV-a0-XUg"/>

@@ -32,7 +32,7 @@ class UserTableViewController: UITableViewController {
                 if user.username != PFUser.currentUser().username {
                     self.users.append(user.username)
                     isFollowing = false
-                    var query = PFQuery(className: "followers")
+                    var query = PFQuery(className: "Followers")
                     query.whereKey("follower", equalTo: PFUser.currentUser().username)
                     query.whereKey("following", equalTo: user.username)
                     query.findObjectsInBackgroundWithBlock {
@@ -89,7 +89,7 @@ class UserTableViewController: UITableViewController {
         if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
             cell.accessoryType = UITableViewCellAccessoryType.None
             
-            var query = PFQuery(className: "followers")
+            var query = PFQuery(className: "Followers")
             query.whereKey("follower", equalTo: PFUser.currentUser().username)
             query.whereKey("following", equalTo: cell.textLabel?.text)
             query.findObjectsInBackgroundWithBlock {
@@ -105,7 +105,7 @@ class UserTableViewController: UITableViewController {
             
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            var following = PFObject(className: "followers")
+            var following = PFObject(className: "Followers")
             following["following"] = cell.textLabel?.text
             following["follower"] = PFUser.currentUser().username!
             following.saveInBackgroundWithBlock(nil)
