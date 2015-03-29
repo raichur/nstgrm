@@ -10,10 +10,19 @@ import UIKit
 
 class UserTableViewController: UITableViewController {
     
-    var users = ["Rob", "Josh", "John", "Sarah"]
+    var users = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var query = PFUser.query()
+        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+            self.users.removeAll(keepCapacity: true)
+            for object in objects {
+                var user: PFUser = object as PFUser
+                self.users.append(user.username)
+            }
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
