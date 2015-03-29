@@ -12,9 +12,17 @@ class UserTableViewController: UITableViewController {
     
     var users = [""]
     var following = [Bool]()
+    var refresher: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUsers()
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresher)
+    }
+    
+    func updateUsers() {
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
             self.users.removeAll(keepCapacity: true)
@@ -39,11 +47,16 @@ class UserTableViewController: UITableViewController {
                         } else {
                             
                         }
+                        self.refresher.endRefreshing()
                     }
                 }
                 
             }
         })
+    }
+    
+    func refresh() {
+        updateUsers()
     }
     
     override func didReceiveMemoryWarning() {
