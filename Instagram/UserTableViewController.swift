@@ -9,10 +9,11 @@
 import UIKit
 
 class UserTableViewController: UITableViewController {
+    
+    var users = ["Rob", "Josh", "John", "Sarah"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,12 +25,12 @@ class UserTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return users.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = "Josh"
+        cell.textLabel?.text = users[indexPath.row]
         return cell
     }
     
