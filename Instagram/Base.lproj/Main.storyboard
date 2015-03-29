@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fIA-rc-Zlh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -135,11 +135,97 @@
                             <outlet property="delegate" destination="eev-kp-l4P" id="pao-qP-om6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Follow Users" id="fph-rY-4AP"/>
+                    <navigationItem key="navigationItem" title="Follow Users" id="fph-rY-4AP">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Ork-SL-FDm">
+                            <connections>
+                                <segue destination="fIA-rc-Zlh" kind="show" id="cGV-a0-XUg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8K-XM-8yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-651" y="28"/>
+        </scene>
+        <!--Post Image-->
+        <scene sceneID="wmr-v1-us0">
+            <objects>
+                <viewController title="Post Image" id="fIA-rc-Zlh" customClass="postViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V3x-Ka-Uyt"/>
+                        <viewControllerLayoutGuide type="bottom" id="IYW-TW-2kS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J0b-yf-Qvc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PsX-27-Dpm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="JfS-7G-juX"/>
+                                    <constraint firstAttribute="width" constant="320" id="t8V-Eq-rba"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-t3-vEk">
+                                <rect key="frame" x="100" y="392" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="D82-FC-ba8"/>
+                                    <constraint firstAttribute="width" constant="120" id="Fj1-87-jXh"/>
+                                </constraints>
+                                <state key="normal" title="Choose an image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseImage:" destination="fIA-rc-Zlh" eventType="touchUpInside" id="f0H-um-Mdn"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CpF-21-Yp1">
+                                <rect key="frame" x="16" y="430" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="2TV-bN-zMc"/>
+                                    <constraint firstAttribute="height" constant="30" id="c5W-rk-ifG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iK-0s-g8v">
+                                <rect key="frame" x="16" y="468" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b3z-jZ-AM8"/>
+                                    <constraint firstAttribute="width" constant="288" id="v4R-ud-776"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postImage:" destination="fIA-rc-Zlh" eventType="touchUpInside" id="8kY-Kz-MPG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Bh-t3-vEk" firstAttribute="top" secondItem="PsX-27-Dpm" secondAttribute="bottom" constant="8" id="606-Wj-9hi"/>
+                            <constraint firstItem="2iK-0s-g8v" firstAttribute="top" secondItem="CpF-21-Yp1" secondAttribute="bottom" constant="8" id="A7b-qI-V8u"/>
+                            <constraint firstAttribute="centerX" secondItem="8Bh-t3-vEk" secondAttribute="centerX" id="Bb6-Ra-nZm"/>
+                            <constraint firstAttribute="centerX" secondItem="CpF-21-Yp1" secondAttribute="centerX" id="KCE-2j-u4T"/>
+                            <constraint firstAttribute="centerX" secondItem="PsX-27-Dpm" secondAttribute="centerX" id="TG7-D6-2e6"/>
+                            <constraint firstAttribute="centerX" secondItem="2iK-0s-g8v" secondAttribute="centerX" id="eXb-Rm-nU9"/>
+                            <constraint firstItem="CpF-21-Yp1" firstAttribute="top" secondItem="8Bh-t3-vEk" secondAttribute="bottom" constant="8" id="g3e-j1-21m"/>
+                            <constraint firstItem="PsX-27-Dpm" firstAttribute="top" secondItem="V3x-Ka-Uyt" secondAttribute="bottom" id="jr8-Oy-did"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageToPost" destination="PsX-27-Dpm" id="ohr-nm-abx"/>
+                        <outlet property="shareText" destination="CpF-21-Yp1" id="Fp4-yZ-QJi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxU-8l-X4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="38K-3U-8cn">
