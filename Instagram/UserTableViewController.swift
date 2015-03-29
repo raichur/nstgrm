@@ -11,6 +11,7 @@ import UIKit
 class UserTableViewController: UITableViewController {
     
     var users = [""]
+    var following = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +20,29 @@ class UserTableViewController: UITableViewController {
             self.users.removeAll(keepCapacity: true)
             for object in objects {
                 var user: PFUser = object as PFUser
+                var isFollowing: Bool
                 if user.username != PFUser.currentUser().username {
                     self.users.append(user.username)
+                    isFollowing = false
+                    var query = PFQuery(className: "followers")
+                    query.whereKey("follower", equalTo: PFUser.currentUser().username)
+                    query.whereKey("following", equalTo: user.username)
+                    query.findObjectsInBackgroundWithBlock {
+                        (objects: [AnyObject]!, error: NSError!) -> Void in
+                        if error == nil {
+                            for object in objects {
+                                isFollowing = true
+                            }
+                            
+                            self.following.append(isFollowing)
+                            self.tableView.reloadData()
+                        } else {
+                            
+                        }
+                    }
                 }
+                
             }
-            self.tableView.reloadData()
         })
     }
     
@@ -41,6 +60,13 @@ class UserTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        
+        if following.count > indexPath.row {
+            if following[indexPath.row] {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+        }
+        
         cell.textLabel?.text = users[indexPath.row]
         return cell
     }
@@ -49,6 +75,21 @@ class UserTableViewController: UITableViewController {
         var cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
             cell.accessoryType = UITableViewCellAccessoryType.None
+            
+            var query = PFQuery(className: "followers")
+            query.whereKey("follower", equalTo: PFUser.currentUser().username)
+            query.whereKey("following", equalTo: cell.textLabel?.text)
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    for object in objects {
+                        object.delete()
+                    }
+                } else {
+                    
+                }
+            }
+            
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             var following = PFObject(className: "followers")
