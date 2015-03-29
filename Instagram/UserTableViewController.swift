@@ -19,7 +19,9 @@ class UserTableViewController: UITableViewController {
             self.users.removeAll(keepCapacity: true)
             for object in objects {
                 var user: PFUser = object as PFUser
-                self.users.append(user.username)
+                if user.username != PFUser.currentUser().username {
+                    self.users.append(user.username)
+                }
             }
             self.tableView.reloadData()
         })
@@ -43,9 +45,17 @@ class UserTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSgitelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            var following = PFObject(className: "followers")
+            following["following"] = cell.textLabel?.text
+            following["follower"] = PFUser.currentUser().username!
+            following.saveInBackgroundWithBlock(nil)
+        }
     }
     
 }
