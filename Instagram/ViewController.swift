@@ -32,12 +32,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func toggleSignUp(sender: AnyObject) {
         
         if signUpActive == true {
-            
             signUpActive = false
-            signUpButton.setTitle(<#title: String?#>, forState: <#UIControlState#>)
+            signUpButton.setTitle("Log In", forState: UIControlState.Normal)
+            signUpToggleButton.setTitle("Sign Up", forState: UIControlState.Normal)
             
         } else {
-            
+            signUpActive = true
+            signUpToggleButton.setTitle("Log In", forState: UIControlState.Normal)
+            signUpButton.setTitle("Sign Up", forState: UIControlState.Normal)
         }
         
     }
