@@ -52,7 +52,6 @@ class postViewController: UIViewController, UINavigationControllerDelegate, UIIm
                 
                 self.activityIndicator.stopAnimating()
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                gi
                 if success == false {
                     self.activityIndicator.stopAnimating()
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
