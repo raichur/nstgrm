@@ -12,6 +12,7 @@ class postViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var photoSelected = false
     var firstTime = true
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet weak var imageToPost: UIImageView!
     @IBOutlet weak var shareText: UITextField!
@@ -35,12 +36,26 @@ class postViewController: UIViewController, UINavigationControllerDelegate, UIIm
             displayAlert("Cannot post image", error: error)
         } else {
             
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
             var post = PFObject(className: "Post")
             post["caption"] = shareText.text
             post["username"] = PFUser.currentUser().username
             
             post.saveInBackgroundWithBlock {(success: Bool!, error: NSError!) -> Void in
+                
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                gi
                 if success == false {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     self.displayAlert("Could not post image", error: "Please try again later")
                 } else {
                     let imageData = UIImagePNGRepresentation(self.imageToPost.image)
