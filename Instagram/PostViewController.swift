@@ -26,6 +26,14 @@ class postViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.presentViewController(image, animated: true, completion: nil)
     }
     
+    @IBAction func logout(sender: AnyObject) {
+        
+        PFUser.logOut()
+        self.performSegueWithIdentifier("logout", sender: "self")
+        
+    }
+    
+    
     @IBAction func postImage(sender: AnyObject) {
         var error = ""
         
