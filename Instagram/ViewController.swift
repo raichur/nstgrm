@@ -82,7 +82,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     
                     if signUpError == nil {
-                        println("Signed up")
+                        self.performSegueWithIdentifier("jumpToUserTable", sender: "self")
                     } else {
                         
                         self.activityIndicator.stopAnimating()
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     (user: PFUser!, signUpError: NSError!) -> Void in
                     
                     if signUpError == nil {
-                        println("Logged in")
+                        self.performSegueWithIdentifier("jumpToUserTable", sender: "self")
                     } else {
                         if let errorString = signUpError.userInfo?["error"] as? NSString {
                             error = errorString
@@ -127,6 +127,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if PFUser.currentUser() != nil {
             self.performSegueWithIdentifier("jumpToUserTable", sender: self)
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
