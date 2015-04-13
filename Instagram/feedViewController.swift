@@ -27,45 +27,17 @@ class feedViewController: UITableViewController {
         return 3
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-//        
-//        if following.count > indexPath.row {
-//            if following[indexPath.row] {
-//                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-//            }
-//        }
-//        
-//        cell.textLabel?.text = users[indexPath.row]
-//        return cell
-//    }
-//    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        var cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-//        if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
-//            cell.accessoryType = UITableViewCellAccessoryType.None
-//            
-//            var query = PFQuery(className: "Followers")
-//            query.whereKey("follower", equalTo: PFUser.currentUser().username)
-//            query.whereKey("following", equalTo: cell.textLabel?.text)
-//            query.findObjectsInBackgroundWithBlock {
-//                (objects: [AnyObject]!, error: NSError!) -> Void in
-//                if error == nil {
-//                    for object in objects {
-//                        object.delete()
-//                    }
-//                } else {
-//                    
-//                }
-//            }
-//            
-//        } else {
-//            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-//            var following = PFObject(className: "Followers")
-//            following["following"] = cell.textLabel?.text
-//            following["follower"] = PFUser.currentUser().username!
-//            following.saveInBackgroundWithBlock(nil)
-//        }
-//    }
-//    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 400
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var myCell: cell = self.tableView.dequeueReusableCellWithIdentifier("myCell") as cell
+        
+        myCell.title.text = "My title"
+        myCell.username.text = "Rob"
+        
+        return myCell
+    }
+    
 }
