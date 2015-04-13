@@ -11,12 +11,29 @@ import UIKit
 
 class feedViewController: UITableViewController {
     
+    var titles = [String]()
+    var usernames = [String]()
+    var images = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        var query = PFQuery(className: "Post")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    self.titles.append(object["title"] as String)
+                    self.usernames.append(object["username"] as String)
+                }
+            } else {
+                
+            }
+        }
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -24,7 +41,7 @@ class feedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return titles.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
