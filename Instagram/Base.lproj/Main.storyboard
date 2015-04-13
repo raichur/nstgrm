@@ -251,29 +251,45 @@
             </objects>
             <point key="canvasLocation" x="-290" y="-56"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="ZGh-s7-orX">
             <objects>
-                <tableViewController id="1bx-Ne-ibj" sceneMemberID="viewController">
+                <tableViewController id="1bx-Ne-ibj" customClass="feedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="N8r-JX-Re0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="360" id="LTY-k9-yYh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="360" id="LTY-k9-yYh" customClass="cell" customModule="Instagram" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LTY-k9-yYh" id="wKq-nw-PUq">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEW-Ic-hjC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEW-Ic-hjC">
                                             <rect key="frame" x="0.0" y="2" width="320" height="320"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="320" id="BSU-Xc-2er"/>
-                                                <constraint firstAttribute="height" constant="320" id="k4u-sD-ObY"/>
+                                                <constraint firstAttribute="height" constant="400" id="k4u-sD-ObY"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVS-aE-2PG">
+                                            <rect key="frame" x="8" y="339" width="304" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="gdc-sP-gtI"/>
+                                                <constraint firstAttribute="height" constant="21" id="k44-gy-rZW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="k44-gy-rZW"/>
+                                                    <exclude reference="gdc-sP-gtI"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtJ-rD-t0I">
-                                            <rect key="frame" x="8" y="330" width="304" height="21"/>
+                                            <rect key="frame" x="8" y="323" width="304" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="5co-Hk-n0L"/>
                                                 <constraint firstAttribute="width" constant="42" id="WR8-7a-hHg"/>
@@ -296,6 +312,11 @@
                                         <constraint firstItem="FtJ-rD-t0I" firstAttribute="top" secondItem="cEW-Ic-hjC" secondAttribute="bottom" constant="8" id="sRF-3W-Mxm"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postedImage" destination="cEW-Ic-hjC" id="dMl-of-tIS"/>
+                                    <outlet property="title" destination="FtJ-rD-t0I" id="vwU-8Y-RER"/>
+                                    <outlet property="username" destination="BVS-aE-2PG" id="gwh-bv-gRN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
